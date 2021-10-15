@@ -16,7 +16,7 @@ class Node{
     }
 public class BinarySearchTreeSkewedTree {
      
-    public static Node node; 
+    public static Node node; // creating an object of class node
     static Node prevNode = null;
     static Node head = null; // setting the head node as null initially
     
