@@ -1,14 +1,16 @@
-// Asssembling a building based on the Floors that are built from the largest to the smallest
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mycompany.GradedProject3;
 
+
 import java.util.ArrayList;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.Stack;
 import java.util.Scanner;
 
-
-public class Archtect {
+public class ArchitectLogic2 {
     static ArrayList<Integer> array= new ArrayList<Integer>();
     static ArrayList<Integer>array_copy= new ArrayList<Integer>();
     static  int size;
@@ -26,9 +28,9 @@ public class Archtect {
     
     }
     static void orderOfFloorsToBeAssembled(){
-        Queue<Integer> floors = new LinkedList<>();
+        Stack<Integer> floors = new Stack<>();
  
-        for(int i=size; i>=1; i--)
+        for(int i=1; i<=size; i++)
             floors.add(i);
         
         int d=1,days;
@@ -60,7 +62,7 @@ public class Archtect {
                     System.out.print(floor);
                     
                     // Once the floor is assembled, remove the floor from the Queue
-                    floors.remove();
+                    floors.pop();
                     // Remove that floor from the list that the floor was built
                     array.remove(j);
                     // Reduce the number of floors to be built
@@ -73,7 +75,7 @@ public class Archtect {
                             floor=(int)floors.peek();
                             if((int)array.get(k)== floor){
                                 System.out.print(" "+ floor);
-                                floors.remove();
+                                floors.pop();
                                 // If built, use it for assembling and remove that floor from the
                                 // list to be built and also from the array
                                 array.remove(k);
@@ -97,18 +99,8 @@ public class Archtect {
         }
     }  
     
-    
     public static void main(String args[]) {
-            
         inputData();
         orderOfFloorsToBeAssembled();
-        
-      }
     }
-                         
-                  
-                       
-    
-            
-        
-  
+}
